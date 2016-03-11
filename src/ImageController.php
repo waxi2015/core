@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Waxis\Core;
 
 use Illuminate\Http\Request;
 
