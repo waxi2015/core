@@ -19,8 +19,7 @@ class CoreServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/assets/sass/bootstrap.scss' => resource_path('assets/sass/bootstrap.scss'),
-            __DIR__.'/assets/sass/theme.scss' => resource_path('assets/sass/theme.scss'),
+            __DIR__.'/assets/sass' => resource_path('assets/sass'),
             __DIR__.'/assets/libs/jquery' => public_path('libs/jquery'),
             __DIR__.'/assets/libs/jquery-ui' => public_path('libs/jquery-ui'),
             __DIR__.'/Descriptors/Image/Example.php' => app_path('Descriptors/Image/Example.php'),
