@@ -26,7 +26,6 @@ class CoreServiceProvider extends ServiceProvider
             __DIR__.'/Descriptors/Image/Example.php' => app_path('Descriptors/Image/Example.php'),
             __DIR__.'/config/locale.php' => config_path('locale.php'),
             __DIR__.'/views/welcome.blade.php' => resource_path('views/welcome.blade.php'),
-            __DIR__.'/gulpfile.js' => 'gulpfile.js',
         ]);
     }
 
