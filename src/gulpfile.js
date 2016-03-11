@@ -15,6 +15,7 @@ elixir(function(mix) {
 	mix.copy('node_modules/font-awesome', 'public/libs/font-awesome');
 	mix.copy('resources/assets/admin/svg', 'public/svg/admin');
 	mix.copy('resources/assets/admin/favicon', 'public/favicon/admin');
+	mix.copy('resources/assets/admin/images', 'public/images/admin');
 
 	// Repeater js 
 
