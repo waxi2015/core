@@ -7,6 +7,7 @@
         <script type="text/javascript" src="/libs/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="/libs/jquery-ui/jquery-ui.min.js"></script>
         <script type="text/javascript" src="/libs/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/lang.js"></script>
         
         <!-- CK editor -->
         <script type="text/javascript" src="/libs/ckeditor/ckeditor.js"></script>
@@ -19,6 +20,13 @@
         
         <!-- App -->
         <link href="/css/theme.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="/js/app.js"></script>
+
+        <script>
+            $(function(){
+                Lang.setLocale('{{ Lang::getLocale() }}');
+            })
+        </script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -57,7 +65,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">webaxis on</div>
+                <div class="title">We're on</div>
             </div>
         </div>
     </body>
