@@ -25,6 +25,28 @@ function decode ($txt) {
     }
 }
 
+function toClickableUrl ($url) {
+	if (empty($url)) {
+		return 'javascript:void(0)';
+	}
+
+	if (substr($url,0,4) == 'http') {
+		return $url;
+	}
+	
+	return 'http://' . $url;
+}
+
+function addComma ($key, $items, &$return) {
+	if (count($items) > $key + 1) {
+		$return .= ', ';
+	}
+}
+
+function to_array($val) {
+    return json_decode(json_encode($val), true);
+}
+
 function sortBy($field, &$array, $direction = 'asc') {
 	$direction = strtolower($direction);
 
@@ -247,9 +269,13 @@ function runline () {
 }
 
  function getYoutubeVideoId($url) {
-	$pattern = '/^(?:https?:\/\/|\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=))([\w-]{10,12})$/';
+ 	if (strstr($url, '.') === false) {
+ 		return $url;
+ 	}
+
+	$pattern = "#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=embed/)[^&\n]+|(?<=v=)[^&\‌​n]+|(?<=youtu.be/)[^&\n]+#";
 	if (preg_match($pattern, $url, $match)) {
-		return $match[1];
+		return $match[0];
 	} else {
 		return false;
 	}

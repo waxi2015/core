@@ -21,7 +21,7 @@ class ImageController extends Controller
 
     public $cachePath = null;
 
-    public function get($folder, $type, $file)
+    public function get($folder, $type, $file = null)
     {
         $this->folder = $folder;
         $this->type = $type;
@@ -31,7 +31,7 @@ class ImageController extends Controller
 
         $renderPath = $this->cachePath;
 
-        if ($file == 'default' || !file_exists($originalPath . $file)) {
+        if (empty($file) || $file == 'default' || !file_exists($originalPath . $file)) {
             $file = $this->getDefault();
         }
 
@@ -45,7 +45,7 @@ class ImageController extends Controller
 
             $width = $params['size'][0];
             $height = $params['size'][1];
-            $mode = $params['size'][2];
+            $mode = getValue($params['size'],2);
 
             switch ($mode) {
                 case 'crop':
@@ -53,7 +53,9 @@ class ImageController extends Controller
                     break;
                 
                 default:
-                    # code...
+                    $image->resize($width, $height, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
                     break;
             }
 
