@@ -37,9 +37,9 @@ function toClickableUrl ($url) {
 	return 'http://' . $url;
 }
 
-function addComma ($key, $items, &$return) {
+function addComma ($key, $items, &$return, $space = ' ') {
 	if (count($items) > $key + 1) {
-		$return .= ', ';
+		$return .= ',' . $space;
 	}
 }
 
