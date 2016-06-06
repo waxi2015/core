@@ -29,6 +29,10 @@ class ImageController extends Controller
         $this->originalPath = $originalPath = public_path() . '/uploads/images/' . $this->folder . '/';
         $this->cachePath = $cachePath = public_path() . '/uploads/images/' . $this->folder . '/cache/' . $type . '/';
 
+        if ($this->type == 'original') {
+            return $this->render(file_get_contents($this->originalPath . $this->file));
+        }
+
         $renderPath = $this->cachePath;
 
         if (empty($file) || $file == 'default' || !file_exists($originalPath . $file)) {

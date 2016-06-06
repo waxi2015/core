@@ -13,6 +13,55 @@ function DX($v) {
 	die;
 }
 
+function timeAgo ($ptime) {
+	if (!is_int($ptime)) {
+		$ptime = strtotime($ptime);
+	}
+
+	$etime = time() - $ptime;
+
+    if ($etime < 1)
+    {
+        return '0 secs';
+    }
+
+    $a = array( 365 * 24 * 60 * 60  =>  'year',
+                 30 * 24 * 60 * 60  =>  'month',
+                      24 * 60 * 60  =>  'day',
+                           60 * 60  =>  'hour',
+                                60  =>  'min',
+                                 1  =>  'sec'
+                );
+    $a_plural = array( 'year'   => 'years',
+                       'month'  => 'months',
+                       'day'    => 'days',
+                       'hour'   => 'hours',
+                       'minute' => 'mins',
+                       'second' => 'secs'
+                );
+
+    foreach ($a as $secs => $str)
+    {
+        $d = $etime / $secs;
+        if ($d >= 1)
+        {
+            $r = round($d);
+            return $r . ' ' . ($r > 1 ? $a_plural[$str] : $str) . ' ago';
+        }
+    }
+}
+
+function linkify ($text, $blank = true) {
+	if ($blank) {
+		$blank = ' target="_blank"';
+	}
+
+	return preg_replace(
+	              "~[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]~",
+	              "<a href=\"\\0\"$blank>\\0</a>", 
+	              $text);
+}
+
 function encode ($txt) {
 	return Crypt::encrypt(gzcompress($txt));
 }
