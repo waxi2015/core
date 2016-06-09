@@ -13,6 +13,11 @@ function DX($v) {
 	die;
 }
 
+function br2nl($string)
+{
+    return preg_replace('/\<br(\s*)?\/?\>/i', "\n", $string);
+} 
+
 function timeAgo ($ptime) {
 	if (!is_int($ptime)) {
 		$ptime = strtotime($ptime);
@@ -36,8 +41,8 @@ function timeAgo ($ptime) {
                        'month'  => 'months',
                        'day'    => 'days',
                        'hour'   => 'hours',
-                       'minute' => 'mins',
-                       'second' => 'secs'
+                       'min' => 'mins',
+                       'sec' => 'secs'
                 );
 
     foreach ($a as $secs => $str)
