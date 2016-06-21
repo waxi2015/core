@@ -19,14 +19,14 @@ class CoreServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/assets/libs' => public_path('libs'),
-            __DIR__.'/assets/js' => resource_path('assets/js'),
-            __DIR__.'/assets/sass/editor' => resource_path('assets/sass/editor'),
-            __DIR__.'/assets/sass/bootstrap.scss' => resource_path('assets/sass/bootstrap.scss'),
-            __DIR__.'/assets/sass/theme.scss' => resource_path('assets/sass/theme.scss'),
+            __DIR__.'/assets/common/libs/jquery' => resource_path('assets/common/libs/jquery'),
+            __DIR__.'/assets/common/libs/jquery-ui' => resource_path('assets/common/libs/jquery-ui'),
+            __DIR__.'/assets/app/sass/app.scss' => resource_path('assets/app/sass/app.scss'),
+            __DIR__.'/assets/app/sass/bootstrap.scss' => resource_path('assets/app/sass/bootstrap.scss'),
             __DIR__.'/Descriptors/Image/Example.php' => app_path('Descriptors/Image/Example.php'),
             __DIR__.'/config/locale.php' => config_path('locale.php'),
             __DIR__.'/views/welcome.blade.php' => resource_path('views/welcome.blade.php'),
+            __DIR__.'/gulpfile.js' => 'gulpfile.js',
         ]);
     }
 

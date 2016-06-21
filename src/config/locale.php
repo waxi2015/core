@@ -22,9 +22,5 @@ return [
             'iso2' => 'hu',
             'name' => 'Magyar'
         ],
-        /*'es' => [
-            'iso2' => 'es',
-            'name' => 'Espanol'
-        ],*/
     ],
 ];
