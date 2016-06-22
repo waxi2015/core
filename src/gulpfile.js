@@ -17,7 +17,6 @@ elixir(function(mix) {
 
 		// Copy general, common stuff to public
 	    mix.copy('node_modules/font-awesome', 'public/assets/common/libs/font-awesome');
-	    mix.copy('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', 'public/assets/common/libs/bootstrap/bootstrap.min.js');
 	    mix.copy('resources/assets/common/libs/ionicons', 'public/assets/common/libs/ionicons');
 	    mix.copy('resources/assets/common/libs/jquery', 'public/assets/common/libs/jquery');
 	    mix.copy('resources/assets/common/libs/jquery-ui', 'public/assets/common/libs/jquery-ui');
@@ -66,7 +65,7 @@ elixir(function(mix) {
 	    mix.copy('resources/assets/admin/svg', 'public/assets/admin/svg');
 	    mix.copy('resources/assets/admin/favicon', 'public/assets/admin/favicon');
 	    mix.copy('resources/assets/admin/images', 'public/assets/admin/images');
-	    mix.copy('resources/assets/admin/css/editor', 'public/assets/common/css/editor');
+	    mix.copy('resources/assets/admin/css/editor', 'public/assets/admin/css/editor');
 
 	    // (2) JS
 	    mix.scripts([
@@ -77,7 +76,6 @@ elixir(function(mix) {
 	        '../admin/libs/side-bar/js/sidebar-effects.js',
 	        '../admin/libs/metis-menu/jquery.metisMenu.js',
 	        '../admin/js/cms.js',
-	        '../admin/js/admin.js',
 	    ], 'public/assets/admin/js/app.js');
 
 	    // (3) Create css from sass - this is the actual app style
@@ -112,7 +110,7 @@ elixir(function(mix) {
 	    ],'resources/assets/app/css/theme.css');
 
 		// (4)
-	    mix.sass([
+	    mix.styles([
 	        '../app/css/theme.css',
 	    ],'public/assets/app/css/theme.css');
 
