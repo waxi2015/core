@@ -17,6 +17,7 @@ elixir(function(mix) {
 
 		// Copy general, common stuff to public
 	    mix.copy('node_modules/font-awesome', 'public/assets/common/libs/font-awesome');
+	    mix.copy('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', 'public/assets/common/libs/bootstrap/bootstrap.min.js');
 	    mix.copy('resources/assets/common/libs/ionicons', 'public/assets/common/libs/ionicons');
 	    mix.copy('resources/assets/common/libs/jquery', 'public/assets/common/libs/jquery');
 	    mix.copy('resources/assets/common/libs/jquery-ui', 'public/assets/common/libs/jquery-ui');
