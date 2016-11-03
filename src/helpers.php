@@ -13,6 +13,13 @@ function DX($v) {
 	die;
 }
 
+function roundToHalf($num)
+{
+  if($num >= ($half = ($ceil = ceil($num))- 0.5) + 0.25) return $ceil;
+  else if($num < $half - 0.25) return floor($num);
+  else return $half;
+}
+
 function br2nl($string)
 {
     return preg_replace('/\<br(\s*)?\/?\>/i', "\n", $string);
@@ -333,6 +340,10 @@ function runline () {
 	} else {
 		return false;
 	}
+}
+
+function isYoutubeId($id) {
+    return preg_match('/^[a-zA-Z0-9_-]{11}$/', $id) > 0;
 }
 
  function getVimeoVideoId($url) {
