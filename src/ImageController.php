@@ -99,17 +99,26 @@ class ImageController extends Controller
                 $default = $file . '-' . $this->type . '.' . $extension;
             }
             elseif (file_exists($this->originalPath . $file . '-' . $this->type . '.' . strtoupper($extension))) {
-                $default = $file . '.' . strtoupper($extension);
-            }
-            elseif (file_exists($this->originalPath . $file . '.' . $extension)) {
-                $default = $file . '.' . $extension;
-            }
-            elseif (file_exists($this->originalPath . $file . '.' . strtoupper($extension))) {
-                $default = $file . '.' . strtoupper($extension);
+                $default = $file . '-' . $this->type . '.' . strtoupper($extension);
             }
 
             if ($default !== null) {
                 break;
+            }
+        }
+
+        if ($default === null) {
+            foreach ($extensions as $extension) {
+                if (file_exists($this->originalPath . $file . '.' . $extension)) {
+                    $default = $file . '.' . $extension;
+                }
+                elseif (file_exists($this->originalPath . $file . '.' . strtoupper($extension))) {
+                    $default = $file . '.' . strtoupper($extension);
+                }
+
+                if ($default !== null) {
+                    break;
+                }
             }
         }
 
