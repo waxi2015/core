@@ -1,5 +1,11 @@
 <?php
 
+function keepXLines($str, $num=10) {
+    $lines = explode("\n", $str);
+    $firsts = array_slice($lines, 0, $num);
+    return implode("\n", $firsts);
+}
+
 function D($v) {
 	print '<pre>';
 	var_dump($v);
